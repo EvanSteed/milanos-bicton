@@ -11,6 +11,7 @@ interface NavLink {
 export function HamburgerMenu({ links }: { links: NavLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -25,8 +26,11 @@ export function HamburgerMenu({ links }: { links: NavLink[] }) {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+      if (menuRef.current && buttonRef.current) {
+        if (!menuRef.current.contains(event.target as Node) && 
+            !buttonRef.current.contains(event.target as Node)) {
+          setIsOpen(false);
+        }
       }
     }
     if (isOpen) {
@@ -40,6 +44,7 @@ export function HamburgerMenu({ links }: { links: NavLink[] }) {
   return (
     <div className="relative">
       <button
+        ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
         className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#FDF8F3] cursor-pointer bg-transparent border-0"
         aria-expanded={isOpen}
@@ -61,7 +66,6 @@ export function HamburgerMenu({ links }: { links: NavLink[] }) {
           ref={menuRef}
           id="mobile-menu"
           className="fixed left-0 right-0 top-20 z-[9999] bg-[#1A1A1A] shadow-2xl overflow-y-auto"
-          style={{ backgroundColor: "#1A1A1A" }}
         >
           <ul className="py-4 px-4 space-y-1">
             {links.map((link) => (
