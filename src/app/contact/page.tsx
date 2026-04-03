@@ -149,7 +149,7 @@ export default function ContactPage() {
 
               <div className="rounded-2xl overflow-hidden h-[300px] shadow-xl">
                 <iframe 
-                  src="https://maps.google.com/maps?q=380%20Canning%20Highway%20Bicton%20WA%206157&z=15&output=embed" 
+                  src="https://maps.google.com/maps?q=380%20Canning%20Highway%20Bicton%20WA%206157&z=15&output=embed"
                   width="100%" 
                   height="100%"
                   style={{ border: 0 }} 

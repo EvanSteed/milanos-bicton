@@ -65,7 +65,7 @@ export default function Home() {
     <section ref={heroRef} className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden">
       <div ref={bgRef} className="absolute inset-0 z-0 will-change-transform">
         <img 
-          src="https://milanosbicton.com.au/wp-content/themes/g5_helium/custom/images/header/interior.jpg" 
+          src="/images/interior.jpg" 
           alt="Milano's Restaurant Interior" 
           className="w-full h-full object-cover"
         />
