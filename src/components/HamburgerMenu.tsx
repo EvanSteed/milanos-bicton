@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface NavLink {
@@ -11,15 +11,27 @@ interface NavLink {
 export function HamburgerMenu({ links }: { links: NavLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-[#FDF8F3] cursor-pointer"
+        className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#FDF8F3] cursor-pointer"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close menu" : "Open menu"}
+        type="button"
       >
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           {isOpen ? (
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           ) : (
@@ -29,25 +41,25 @@ export function HamburgerMenu({ links }: { links: NavLink[] }) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#1A1A1A]/98 backdrop-blur-xl shadow-2xl border-t border-[#D4A853]/20">
-          <ul className="py-8 px-8 space-y-6">
+        <div className="fixed inset-0 top-20 z-40 bg-[#1A1A1A]/98 backdrop-blur-xl shadow-2xl overflow-y-auto">
+          <ul className="py-6 px-6 space-y-4">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-[#FDF8F3] text-xl font-medium py-2 border-b border-[#D4A853]/10 hover:text-[#D4A853] transition-colors"
+                  className="block text-[#FDF8F3] text-lg font-medium py-4 min-h-[48px] flex items-center border-b border-[#D4A853]/10 hover:text-[#D4A853] transition-colors"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="px-8 pb-8">
+          <div className="px-6 pb-6">
             <Link
               href="/book-a-table"
               onClick={() => setIsOpen(false)}
-              className="block w-full py-4 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-center"
+              className="block w-full py-4 min-h-[48px] bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-center"
             >
               Book a Table
             </Link>
