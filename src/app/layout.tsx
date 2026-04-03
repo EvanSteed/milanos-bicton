@@ -6,6 +6,8 @@ import { HamburgerMenu } from "@/components/HamburgerMenu";
 export const metadata: Metadata = {
   title: "Milano's Restaurant & Pizzeria - Bicton, WA",
   description: "Authentic Italian cuisine in Bicton since 2017. Wood-fired pizzas, handmade pastas, and Mediterranean flavors.",
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#1A1A1A",
 };
 
 export default function RootLayout({

@@ -91,13 +91,13 @@ export default function Home() {
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
             <Link 
               href="/book-a-table"
-              className="btn-primary"
+              className="btn-primary min-h-[48px] px-6 py-4"
             >
               Reserve Your Table
             </Link>
             <Link 
               href="/menu"
-              className="btn-gold"
+              className="btn-gold min-h-[48px] px-6 py-4"
             >
               View Menu
             </Link>
