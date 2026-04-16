@@ -128,9 +128,9 @@ export default function Location() {
                     <span className="text-[#D4A853] font-semibold text-lg">Opening Hours</span>
                   </div>
                   <div className="text-[#FDF8F3]/60 ml-16 space-y-2 text-lg">
-                    <p>Monday - Thursday: 11am - 9pm</p>
-                    <p>Friday - Saturday: 11am - Late</p>
-                    <p>Sunday: 11am - 8pm</p>
+                    <p>Monday - Thursday: 7am - 9pm</p>
+                    <p>Friday - Saturday: 7am - Late</p>
+                    <p>Sunday: 7am - 8pm</p>
                   </div>
                 </div>
               </div>

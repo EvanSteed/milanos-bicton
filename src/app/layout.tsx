@@ -86,9 +86,9 @@ export default function RootLayout({
               <div>
                 <h4 className="font-display text-lg font-bold text-[#D4A853] mb-6">Hours</h4>
                 <ul className="space-y-2 text-[#FDF8F3]/60 font-light">
-                  <li>Mon - Thu: 11am - 9pm</li>
-                  <li>Fri - Sat: 11am - Late</li>
-                  <li>Sunday: 11am - 8pm</li>
+                  <li>Mon - Thu: 7am - 9pm</li>
+                  <li>Fri - Sat: 7am - Late</li>
+                  <li>Sunday: 7am - 8pm</li>
                 </ul>
               </div>
               <div>

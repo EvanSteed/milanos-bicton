@@ -139,9 +139,9 @@ export default function ContactPage() {
                       Opening Hours
                     </h4>
                     <div className="text-[#FDF8F3]/70 text-lg space-y-1">
-                      <p>Monday - Thursday: 11am - 9pm</p>
-                      <p>Friday - Saturday: 11am - Late</p>
-                      <p>Sunday: 11am - 8pm</p>
+                      <p>Monday - Thursday: 7am - 9pm</p>
+                      <p>Friday - Saturday: 7am - Late</p>
+                      <p>Sunday: 7am - 8pm</p>
                     </div>
                   </div>
                 </div>
