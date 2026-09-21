@@ -13,11 +13,26 @@ export default function BookTablePage() {
     specialRequests: ""
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -27,7 +42,7 @@ export default function BookTablePage() {
     }));
   };
 
-  if (isSubmitted) {
+  if (status === "success") {
     return (
       <section className="min-h-screen py-24 md:py-32 bg-[#FDF8F3] flex items-center">
         <div className="container mx-auto px-6 md:px-12 text-center">
@@ -209,9 +224,10 @@ export default function BookTablePage() {
 
             <button
               type="submit"
-              className="w-full py-4 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-lg hover:bg-[#7F1D1D] transition-all hover:scale-[1.02]"
+              disabled={status === "submitting"}
+              className="w-full py-4 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-lg hover:bg-[#7F1D1D] transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
             >
-              Confirm Reservation
+              {status === "submitting" ? "Booking..." : "Confirm Reservation"}
             </button>
           </form>
 
