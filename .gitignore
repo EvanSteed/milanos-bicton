@@ -6,5 +6,6 @@ out
 .DS_Store
 dist
 
-
 .vercel
+
+.env.local

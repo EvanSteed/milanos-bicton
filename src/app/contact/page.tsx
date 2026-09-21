@@ -1,6 +1,41 @@
 "use client";
 
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const payload = {
+      name: data.get("name"),
+      email: data.get("email"),
+      phone: data.get("phone"),
+      message: data.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="min-h-screen py-24 md:py-32 bg-[#FDF8F3]">
       <div className="container mx-auto px-6 md:px-12">
@@ -23,7 +58,7 @@ export default function ContactPage() {
                 Send us a Message
               </h2>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-[#1A1A1A] mb-2">
                     Name
@@ -31,6 +66,8 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-[#E5E0D8] focus:border-[#991B1B] focus:ring-2 focus:ring-[#991B1B]/20 outline-none transition-all"
                     placeholder="Your name"
                   />
@@ -43,6 +80,8 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-[#E5E0D8] focus:border-[#991B1B] focus:ring-2 focus:ring-[#991B1B]/20 outline-none transition-all"
                     placeholder="your@email.com"
                   />
@@ -55,6 +94,7 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     className="w-full px-4 py-3 rounded-lg border border-[#E5E0D8] focus:border-[#991B1B] focus:ring-2 focus:ring-[#991B1B]/20 outline-none transition-all"
                     placeholder="(08) 1234 5678"
                   />
@@ -66,6 +106,8 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    required
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-[#E5E0D8] focus:border-[#991B1B] focus:ring-2 focus:ring-[#991B1B]/20 outline-none transition-all resize-none"
                     placeholder="How can we help?"
@@ -74,10 +116,22 @@ export default function ContactPage() {
                 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-lg hover:bg-[#7F1D1D] transition-all hover:scale-[1.02]"
+                  disabled={status === "submitting"}
+                  className="w-full py-4 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-lg hover:bg-[#7F1D1D] transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
                 >
-                  Send Message
+                  {status === "submitting" ? "Sending..." : "Send Message"}
                 </button>
+
+                {status === "success" && (
+                  <p className="text-green-700 font-medium text-center">
+                    Thank you! Your message has been sent.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-700 font-medium text-center">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </form>
             </div>
 
