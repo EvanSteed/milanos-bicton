@@ -116,15 +116,6 @@ export default function Home() {
           </svg>
         </Link>
       </div>
-
-      <style jsx>{`
-        .text-gradient-gold {
-          background: linear-gradient(135deg, #D4A853 0%, #E8C87A 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </section>
   );
 }

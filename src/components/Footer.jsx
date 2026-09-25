@@ -21,11 +21,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 md:gap-16 mb-16">
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img 
-                src="https://milanosbicton.com.au/wp-content/themes/g5_helium/images/intro/Milanos_Positive_Colour_Linear_2.png" 
-                alt="Milano's Logo" 
-                className="h-18 mb-6"
-              />
+<img 
+  src="/images/logo.png" 
+  alt="Milano's Logo" 
+  className="h-18 mb-6"
+/>
             </div>
             <p className="text-[#FDF8F3]/60 font-light leading-relaxed text-lg">
               Authentic Italian cuisine in the heart of Bicton since 2017. 

@@ -86,12 +86,12 @@ export default function Header() {
               className="flex items-center"
               aria-label="Milano's Restaurant - Home"
             >
-              <img 
-                ref={logoRef}
-                src="https://milanosbicton.com.au/wp-content/themes/g5_helium/images/intro/Milanos_Positive_Colour_Linear_2.png" 
-                alt="Milano's Logo" 
-                className="h-14 md:h-18 transition-all duration-300 hover:opacity-80"
-              />
+<img 
+  ref={logoRef}
+  src="/images/logo.png" 
+  alt="Milano's Logo" 
+  className="h-14 md:h-18 transition-all duration-300 hover:opacity-80"
+/>
             </a>
 
             <ul ref={navRef} className="hidden lg:flex items-center gap-12">

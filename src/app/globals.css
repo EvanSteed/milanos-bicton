@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
-
 :root {
   --background: #FDF8F3;
   --foreground: #1A1A1A;
@@ -24,10 +22,6 @@
   --border: #E5E0D8;
   --input: #E5E0D8;
   --ring: #991B1B;
-  
-  --font-heading: 'Playfair Display', serif;
-  --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Outfit', sans-serif;
 }
 
 .dark {
@@ -70,6 +64,13 @@ body {
 
 .font-serif {
   font-family: var(--font-serif);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4A853 0%, #E8C87A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @layer utilities {

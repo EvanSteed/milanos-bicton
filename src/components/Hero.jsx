@@ -61,9 +61,9 @@ export default function Hero() {
         className="absolute inset-0 z-0 will-change-transform"
       >
         <img 
-          src="https://milanosbicton.com.au/wp-content/themes/g5_helium/custom/images/header/interior.jpg" 
+          src="/images/interior.jpg" 
           alt="Milano's Restaurant Interior with elegant dining atmosphere" 
-          className="w-full h-[120%] object-cover animate-ken-burns"
+          className="w-full h-[120%] object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/95 via-[#1A1A1A]/80 to-[#1A1A1A]/60"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/30 via-transparent to-transparent"></div>

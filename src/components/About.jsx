@@ -118,11 +118,11 @@ export default function About() {
             <div className="relative lg:ml-12">
               <div className="absolute -top-8 -left-8 w-32 h-32 border-2 border-[#D4A853]/30 rounded-lg" aria-hidden="true"></div>
               <div className="absolute -bottom-8 -right-8 w-32 h-32 border-2 border-[#991B1B]/30 rounded-lg" aria-hidden="true"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Milano's Restaurant Interior - elegant dining room with wooden tables and warm lighting" 
-                className="rounded-2xl shadow-2xl w-full h-[350px] lg:h-[450px] object-cover"
-              />
+<img 
+  src="/images/interior.jpg" 
+  alt="Milano's Restaurant Interior - elegant dining room with wooden tables and warm lighting" 
+  className="rounded-2xl shadow-2xl w-full h-[350px] lg:h-[450px] object-cover"
+/>
             </div>
             <div className="absolute -bottom-10 -left-4 lg:-left-16 bg-[#991B1B] text-[#FDF8F3] p-8 rounded-xl shadow-xl">
               <p className="font-display text-3xl font-bold">2017</p>

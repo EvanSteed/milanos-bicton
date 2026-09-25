@@ -1,12 +1,35 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { HamburgerMenu } from "@/components/HamburgerMenu";
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Milano's Restaurant & Pizzeria - Bicton, WA",
   description: "Authentic Italian cuisine in Bicton since 2017. Wood-fired pizzas, handmade pastas, and Mediterranean flavors.",
-  viewport: "width=device-width, initial-scale=1",
   themeColor: "#1A1A1A",
 };
 
@@ -23,15 +46,15 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${outfit.variable}`}>
       <body className="min-h-screen flex flex-col">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-xl border-b border-[#D4A853]/20">
           <div className="container mx-auto px-6 md:px-12">
             <nav className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center">
-                <img 
-                  src="/images/logo.png" 
-                  alt="Milano's Logo" 
+                <img
+                  src="/images/logo.png"
+                  alt="Milano's Logo"
                   className="h-20 md:h-24"
                 />
               </Link>
@@ -39,7 +62,7 @@ export default function RootLayout({
               <ul className="hidden lg:flex items-center gap-10">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-sm font-medium tracking-wider uppercase text-[#FDF8F3] hover:text-[#D4A853] transition-colors relative group"
                     >
@@ -51,7 +74,7 @@ export default function RootLayout({
               </ul>
 
               <div className="hidden lg:flex items-center gap-4">
-                <Link 
+                <Link
                   href="/book-a-table"
                   className="px-6 py-3 bg-[#991B1B] text-[#FDF8F3] rounded-lg font-semibold text-sm hover:bg-[#7F1D1D] transition-all hover:scale-105"
                 >
@@ -74,9 +97,9 @@ export default function RootLayout({
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div>
-                <img 
-                  src="/images/logo.png" 
-                  alt="Milano's Logo" 
+                <img
+                  src="/images/logo.png"
+                  alt="Milano's Logo"
                   className="h-20 mb-6"
                 />
                 <p className="text-[#FDF8F3]/60 font-light">

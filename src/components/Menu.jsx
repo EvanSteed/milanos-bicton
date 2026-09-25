@@ -10,7 +10,7 @@ const dishes = [
     name: "Margherita Pizza",
     description: "Classic Italian pizza with San Marzano tomatoes, fresh mozzarella di bufala, and aromatic basil from our wood-fired oven.",
     price: "$20",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: "/images/margherita.jpg",
     tags: ["Signature", "Vegetarian"]
   },
   {
@@ -18,7 +18,7 @@ const dishes = [
     name: "Spaghetti Bolognese",
     description: "Hand-cut pasta simmered in our rich beef bolognese, finished with aged parmesan and fresh herbs.",
     price: "$28",
-    image: "https://images.unsplash.com/photo-1612874742237-415c69bb9dca?w=600&h=500&fit=crop",
+    image: "/images/pasta.jpg",
     tags: ["Popular"]
   },
   {
@@ -26,7 +26,7 @@ const dishes = [
     name: "Classic Tiramisu",
     description: "Layers of espresso-soaked ladyfingers and velvety mascarpone cream, dusted with premium cocoa.",
     price: "$12",
-    image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: "/images/tiramisu.jpg",
     tags: ["Dessert"]
   }
 ];
