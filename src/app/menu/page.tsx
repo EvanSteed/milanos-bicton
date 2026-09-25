@@ -1,10 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useState } from "react";
 
 const menuData = {
   breakfast: [
@@ -137,57 +133,17 @@ const tabs = [
 
 export default function MenuPage() {
   const [activeTab, setActiveTab] = useState('breakfast');
-  const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(headerRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      gsap.fromTo(".menu-tab",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  useEffect(() => {
-    itemsRef.current.forEach((item, index) => {
-      if (item) {
-        gsap.fromTo(item,
-          { opacity: 0, y: 20, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.4, delay: index * 0.03, ease: "power2.out" }
-        );
-      }
-    });
-  }, [activeTab]);
 
   return (
-    <section ref={sectionRef} className="min-h-screen py-24 md:py-32 bg-[#FDF8F3]">
+    <section className="min-h-screen py-24 md:py-32 bg-[#FDF8F3]">
       <div className="container mx-auto px-6 md:px-12">
-        <div ref={headerRef} className="text-center mb-16">
+        <div className="text-center mb-16">
           <span className="text-[#991B1B] text-sm font-semibold tracking-[0.25em] uppercase mb-4 block">
             Our Menu
           </span>
-          <img 
-            src="/images/logo_black.png" 
-            alt="Milano's" 
+          <img
+            src="/images/logo_black.png"
+            alt="Milano's"
             className="h-16 md:h-20 mx-auto mb-6"
           />
           <p className="text-[#2D2D2D]/70 text-xl max-w-xl mx-auto">
@@ -226,9 +182,8 @@ export default function MenuPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {menuData[activeTab as keyof typeof menuData].map((item, index) => (
-            <div 
+            <div
               key={item.id}
-              ref={el => { if (el) itemsRef.current[index] = el }}
               className="menu-item bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-[#D4A853]/20"
             >
               <div className="flex justify-between items-start mb-2">

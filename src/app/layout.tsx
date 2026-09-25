@@ -25,12 +25,12 @@ const outfit = Outfit({
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#1A1A1A",
 };
 
 export const metadata: Metadata = {
   title: "Milano's Restaurant & Pizzeria - Bicton, WA",
   description: "Authentic Italian cuisine in Bicton since 2017. Wood-fired pizzas, handmade pastas, and Mediterranean flavors.",
-  themeColor: "#1A1A1A",
 };
 
 export default function RootLayout({
